@@ -13,10 +13,18 @@ function draw() {
   background(0, 10);
 
   //lerp stroke color
-  let x = map(mouseX, 0, height, 0, 1);
+  let x = map(mouseX, 0, width, 0, 1);
+  let y = map(mouseY, 0, height, 0, 1);
+
   let color1 = color('pink');
   let color2 = color('blue');
-  stroke(lerpColor(color1, color2, x));
+  let color3 = color('black');
+  let color4 = color(92, 255, 179);
+
+  let xColor = lerpColor(color1, color2, x);
+  let yColor = lerpColor(color3, color4, y);
+  stroke(lerpColor(xColor, yColor, y));
+
 
   // TODO: Call the makeCircle() function with 4 for xPos, 50 for yPos and 600 for circleSize
   makeCircle(4, 50, 600);
